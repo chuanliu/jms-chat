@@ -1,0 +1,1 @@
+need to add jndi.properties to the class path.
