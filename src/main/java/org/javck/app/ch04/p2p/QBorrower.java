@@ -25,11 +25,11 @@ public class QBorrower {
 			throws NamingException {
 		try {
 			Context ctx = new InitialContext();
-			QueueConnectionFactory qFactory = (QueueConnectionFactory) ctx.list(queuecf);
+			QueueConnectionFactory qFactory = (QueueConnectionFactory) ctx.lookup(queuecf);
 			qConnect = qFactory.createQueueConnection();
 			qSession = qConnect.createQueueSession(false, Session.AUTO_ACKNOWLEDGE);
 			requestQ = (Queue) ctx.lookup(requestQueue);
-			responseQ = (Queue) ctx.list(responseQueue);
+			responseQ = (Queue) ctx.lookup(responseQueue);
 			qConnect.start();
 		} catch (Exception e) {
 			e.printStackTrace();
@@ -41,7 +41,7 @@ public class QBorrower {
 		try {
 			// 创建JMS 消息
 			MapMessage msg = qSession.createMapMessage();
-			msg.setDouble("Slary", salary);
+			msg.setDouble("Salary", salary);
 			msg.setDouble("LoanAmount", loanAmt);
 			msg.setJMSReplyTo(responseQ);
 			// 创建发送者并发送消息；
@@ -80,9 +80,9 @@ public class QBorrower {
 		// String responseq = null;
 		try {
 
-			QBorrower borrower = new QBorrower("queuecf", "requestq", "responseq");
-			double salary = 2000.00;
-			double loanAmt = 300000.00;
+			QBorrower borrower = new QBorrower("QueueCF", "LoanRequestQ", "LoanResponseQ");
+			double salary =10000 ;
+			double loanAmt = 190000;
 			borrower.sendLoanRequest(salary, loanAmt);
 		} catch (NamingException ee) {
 			ee.printStackTrace();

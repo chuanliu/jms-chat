@@ -96,17 +96,17 @@ public class QLender implements MessageListener {
 
 	public static void main(String argv[]) {
 		
-		QLender lender = new QLender("queuecf", "requestq");
-		try {
-			// Run until enter is pressed
-			BufferedReader stdin = new BufferedReader(new InputStreamReader(
-					System.in));
-			System.out.println("QLender application started");
-			System.out.println("Press enter to quit application");
-			stdin.readLine();
-			lender.exit();
-		} catch (IOException ioe) {
-			ioe.printStackTrace();
-		}
+		QLender lender = new QLender("QueueCF", "LoanRequestQ");
+//		try {
+//			// Run until enter is pressed
+//			BufferedReader stdin = new BufferedReader(new InputStreamReader(
+//					System.in));
+//			System.out.println("QLender application started");
+//			System.out.println("Press enter to quit application");
+//			stdin.readLine();
+//			lender.exit();
+//		} catch (IOException ioe) {
+//			ioe.printStackTrace();
+//		}
 	}
 }
