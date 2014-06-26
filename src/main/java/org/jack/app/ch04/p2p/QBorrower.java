@@ -1,4 +1,4 @@
-package org.javck.app.ch04.p2p;
+package org.jack.app.ch04.p2p;
 
 import javax.jms.JMSException;
 import javax.jms.MapMessage;
