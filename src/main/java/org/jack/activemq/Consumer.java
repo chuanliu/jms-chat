@@ -41,6 +41,7 @@ public class Consumer {
 								+ new Date(message.getLong("count")));
 						session.commit();
 					} catch (JMSException e) {
+						
 						e.printStackTrace();
 					}
 				}
