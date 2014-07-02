@@ -60,7 +60,6 @@ public class TBorrower implements MessageListener{
 	
 	public static void main(String arg[]){
 		TBorrower tborrower = new  TBorrower("TopicCF", "RateTopic", "11.1");
-		System.out.println("tborrower is started");
 	}
 
 }
